@@ -1,26 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
+import { List } from './List';
+import { ListDragLayer } from './ListDragLayer';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    console.log('APP', 'render');
+    return (
+        <div className="App">
+            <DndProvider backend={HTML5Backend}>
+                <List/>
+                <ListDragLayer/>
+            </DndProvider>
+        </div>
+    );
 }
 
 export default App;
